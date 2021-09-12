@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  db:
+    build:
+        dockerfile: db.Dockerfile
+        context: .
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./sqitch:/sqitch
+    environment:
+        POSTGRES_DB: "${POSTGRES_DB}"
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_STORAGE_USER: "${POSTGRES_STORAGE_USER}"
+        POSTGRES_STORAGE_USER_PASSWORD: "${POSTGRES_STORAGE_USER_PASSWORD}"
+
+        SQITCH_CONFIG: "/sqitch/sqitch.conf"
+        SQITCH_USERNAME: "${POSTGRES_STORAGE_USER}"
+        SQITCH_PASSWORD: "${POSTGRES_STORAGE_USER_PASSWORD}"
+        SQITCH_TARGET: "db:pg://${POSTGRES_STORAGE_USER}:${POSTGRES_STORAGE_USER_PASSWORD}@db/${POSTGRES_DB}"
+  api:
+    image: postgrest/postgrest
+    environment:
+        PGRST_DB_URI: "postgres://${POSTGRES_STORAGE_USER}:${POSTGRES_STORAGE_USER_PASSWORD}@db:5432/${POSTGRES_DB}"
+        PGRST_DB_SCHEMA: public
+        PGRST_DB_ANON_ROLE: "${POSTGRES_STORAGE_USER}"
+        PGRST_OPENAPI_SERVER_PROXY_URI: http://localhost:3000
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+
+volumes:
+  db-data:
