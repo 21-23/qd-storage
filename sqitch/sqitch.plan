@@ -2,3 +2,7 @@
 %project=qd-storage
 
 schemas 2021-09-12T10:36:26Z 2123 <info@2123.io> # Add schemas
+
+qd_storage/table/auth_provider 2021-09-18T09:48:48Z 2123 <info@2123.io> # Add the auth_provider table
+qd_storage/table/user 2021-09-18T09:53:28Z 2123 <info@2123.io> # Add the user table
+api/function/get_token 2021-09-18T10:39:55Z 2123 <info@2123.io> # Add the get_token function

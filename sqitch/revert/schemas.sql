@@ -3,5 +3,6 @@
 begin;
 
     drop schema qd_storage;
+    drop schema api;
 
 commit;
