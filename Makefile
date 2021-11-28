@@ -1,7 +1,7 @@
 all: build run
 
 build:
-	cp -rf ../qd-secrets/services/storage/.env .
+	cp -rf ../qd-secrets/services/storage/* .
 	docker compose build
 
 up:

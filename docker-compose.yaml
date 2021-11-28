@@ -22,6 +22,7 @@ services:
         SQITCH_TARGET: "db:pg://${POSTGRES_STORAGE_USER}:${POSTGRES_STORAGE_USER_PASSWORD}@db/${POSTGRES_DB}"
 
         PGRST_JWT_SECRET: "${PGRST_JWT_SECRET}"
+
   api:
     image: postgrest/postgrest
     environment:
@@ -34,6 +35,12 @@ services:
       - db
     ports:
       - "3000:3000"
+
+  schemaspy:
+    image: schemaspy/schemaspy
+    volumes:
+      - ./schemaspy.properties:/schemaspy.properties
+      - ./schemaspy-output:/output
 
 volumes:
   db-data:
