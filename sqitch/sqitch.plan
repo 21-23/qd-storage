@@ -6,3 +6,7 @@ schemas 2021-09-12T10:36:26Z 2123 <info@2123.io> # Add schemas
 qd_storage/table/auth_provider 2021-09-18T09:48:48Z 2123 <info@2123.io> # Add the auth_provider table
 qd_storage/table/user 2021-09-18T09:53:28Z 2123 <info@2123.io> # Add the user table
 api/function/get_token 2021-09-18T10:39:55Z 2123 <info@2123.io> # Add the get_token function
+qd_storage/table/puzzle 2021-12-01T21:50:32Z 2123 <info@2123.io> # Add the puzzle table
+qd_storage/table/puzzle_constraints 2021-12-03T16:00:19Z 2123 <info@2123.io> # Add the puzzle_constraints table
+qd_storage/table/puzzle_test 2021-12-03T16:25:49Z 2123 <info@2123.io> # Add the puzzle_test table
+qd_storage/table/puzzle_default_test 2021-12-13T10:12:04Z 2123 <info@2123.io> # Add the puzzle_default_test table

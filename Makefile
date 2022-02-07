@@ -9,3 +9,6 @@ up:
 
 down:
 	docker compose down
+
+restart-api:
+	docker compose restart api

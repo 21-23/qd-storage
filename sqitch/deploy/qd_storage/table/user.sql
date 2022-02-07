@@ -8,7 +8,10 @@ begin;
         auth_provider text not null,
         auth_provider_id text not null,
 
-        primary key (auth_provider, auth_provider_id),
+        primary key (id),
+
+        constraint unique_provider_id
+            unique (auth_provider, auth_provider_id),
 
         constraint fk_auth_provider
             foreign key (auth_provider)
