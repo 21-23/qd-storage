@@ -8,6 +8,8 @@ begin;
         auth_provider text not null,
         auth_provider_id text not null,
 
+        auth_token text not null,
+
         primary key (id),
 
         constraint unique_provider_id

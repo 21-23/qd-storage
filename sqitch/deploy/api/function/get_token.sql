@@ -19,7 +19,7 @@ begin;
                 extract(epoch from now())::integer + 300 as exp
         ) claims
 
-    $$ language sql immutable;
+    $$ language sql volatile;
 
     grant execute on function api.get_token(text) to auth;
 

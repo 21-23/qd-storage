@@ -11,4 +11,7 @@ begin;
             check (name <> '')
     );
 
+    insert into qd_storage.auth_provider (name)
+	values ('github'), ('facebook'), ('twitter'), ('google'), ('qdauto');
+
 commit;

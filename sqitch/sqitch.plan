@@ -10,3 +10,4 @@ qd_storage/table/puzzle 2021-12-01T21:50:32Z 2123 <info@2123.io> # Add the puzzl
 qd_storage/table/puzzle_constraints 2021-12-03T16:00:19Z 2123 <info@2123.io> # Add the puzzle_constraints table
 qd_storage/table/puzzle_test 2021-12-03T16:25:49Z 2123 <info@2123.io> # Add the puzzle_test table
 qd_storage/table/puzzle_default_test 2021-12-13T10:12:04Z 2123 <info@2123.io> # Add the puzzle_default_test table
+qd_storage/function/authenticate 2022-02-16T19:50:28Z 2123 <info@2123.io> # Add the authenticate function
