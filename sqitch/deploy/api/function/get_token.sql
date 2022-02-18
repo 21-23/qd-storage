@@ -6,11 +6,11 @@ begin;
         token text
     );
 
-    create function api.get_token(role text)
+    create function api.get_token(role text, extras jsonb)
     returns api.jwt_token as
     $$
         select sign(
-            row_to_json(claims),
+            (to_jsonb(claims) || extras)::json,
             current_setting('qd_storage.jwt_secret')
         ) as token
         from (
@@ -21,6 +21,6 @@ begin;
 
     $$ language sql volatile;
 
-    grant execute on function api.get_token(text) to auth;
+    grant execute on function api.get_token(text, jsonb) to auth;
 
 commit;
